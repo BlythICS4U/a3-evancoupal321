@@ -13,10 +13,10 @@ package reportcardparser;
 public class Main {
     
     // ON WINDOWS USE THIS AND COMMENT THE BELOW FOLDER DEFINITION
-    //private static final String Folder = "ReportCardsWindows";
+    private static final String Folder = "ReportCardsWindows";
     
     // IF NOT WINDOWS, USE THIS AND COMMENT THE ABOVE FOLDER DEFINITION
-    private static final String Folder = "ReportCards";
+    //private static final String Folder = "ReportCards";
     
     private static IReportCardParser[] reportCardParsers = {
         new ReportCardParserType1(Folder + "/ReportType1_1.txt"),
@@ -51,7 +51,7 @@ public class Main {
         System.out.println("Average mark for English is " + ReportCardStats.SubjectAverage(reportCards, "English"));
         System.out.println("Average mark for Physics is " + ReportCardStats.SubjectAverage(reportCards, "Physics"));
         System.out.println("Average mark for Computer Science is " + ReportCardStats.SubjectAverage(reportCards, "Computer Science"));
-        System.out.println("Average mark for Calculus is " + ReportCardStats.SubjectAverage(reportCards, "Calculus"));
+        System.out.println("Average mark for Calculus is " + ReportCardStats.SubjectAverage(reportCards, "Calculus"));    
     }
 
 }

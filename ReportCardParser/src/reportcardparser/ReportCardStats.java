@@ -19,8 +19,18 @@ public class ReportCardStats {
      * @return The name of the student with the highest average
      */
     public static String GetBestStudent(ReportCard[] reportCards) {
-        // REPLACE ME WITH A REAL IMPLEMENTATION!
-        return null;
+        int best = 0;
+        for (int i = 0; i < reportCards.length; i++)
+        {
+            if (reportCards[i] != null)
+            {
+                if (reportCards[i].getAverage() >= reportCards[best].getAverage())
+                {
+                    best = i;
+                }
+            }
+        }
+        return reportCards[best].getName();
     }
     
     /**
@@ -30,8 +40,16 @@ public class ReportCardStats {
      * @return The name of the subject with the highest mark
      */
     public static String GetBestSubject(ReportCard reportCard) {
-        // REPLACE ME WITH A REAL IMPLEMENTATION!
-        return null;
+        int best = 0;
+        CourseMark[] marks = reportCard.getMarks();
+        for (int i = 0; i < 8; i++)
+        {
+            if (marks[i].getMark() >= marks[best].getMark())
+            {
+                best = i;
+            }
+        }
+        return marks[best].getName();
     }
     
     /**
@@ -42,7 +60,21 @@ public class ReportCardStats {
      * @return The average mark of the passed-in subject
      */
     public static double SubjectAverage(ReportCard[] reportCards, String subject) {
-        // REPLACE ME WITH A REAL IMPLEMENTATION!
-        return 0.0;
+        int subjectNum = -1;
+        for (int i = 0; i < 8; i++)
+        {
+            if (reportCards[0].getMarks()[i].getName().equals(subject))
+            {
+                subjectNum = i;
+                break;
+            }
+        }
+        int total = 0;
+        for (int i = 0; i < reportCards.length; i++)
+        {
+            total += reportCards[i].getMarks()[subjectNum].getMark();
+        }
+        double average = (double)total / reportCards.length;
+        return average;
     }
 }
